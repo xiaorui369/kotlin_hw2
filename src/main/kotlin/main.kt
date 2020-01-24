@@ -1,6 +1,10 @@
-fun bodyMassIndex(height:Int, weight: Int): String {
+fun indexConverter(height: Int, weight: Int): Double{
     val heightValue = height.toDouble() / 100
-    val index = weight.toDouble() / (heightValue * heightValue)
+    return weight.toDouble() / (heightValue * heightValue)
+}
+
+
+fun bodyMassIndex(index: Double): String {
     return when (index){
         in 0.0..16.0 -> "Выраженный дефицит массы тела"
         in 16.0..18.5 -> "Недостаточная (дефицит) масса тела"
@@ -16,5 +20,5 @@ fun bodyMassIndex(height:Int, weight: Int): String {
 
 
 fun main() {
-    println(bodyMassIndex(195,65))
+    println(bodyMassIndex(indexConverter(195,95)))
 }
